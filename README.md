@@ -7,7 +7,6 @@
 
     To Run: python app.py
 
-v1.1 
 alien_invasion
     v1.1 Basic
     v1.2 Added colors 
