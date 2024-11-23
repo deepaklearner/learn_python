@@ -13,3 +13,4 @@ alien_invasion
     v1.2 Added colors 
     v1.3 Added settings module
     v1.4 Added ship image
+    v1.5 Refactor run_game
