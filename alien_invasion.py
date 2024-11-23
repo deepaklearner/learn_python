@@ -17,6 +17,7 @@ class AlienInvasion:
                 if event.type == pygame.QUIT:
                     sys.exit()
             
+            # make the mist recently screen drawn visible
             pygame.display.flip()
 
 if __name__=='__main__':
