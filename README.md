@@ -13,4 +13,5 @@ alien_invasion
     v1.3 Added settings module
     v1.4 Added ship image
     v1.5 Refactor run_game check_events() and _update_screen()
-    v1.6 set the ship at center of screem
+    v1.6 set the ship at center of screen
+    v1.7 ability to move ship left and right
