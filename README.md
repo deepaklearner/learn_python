@@ -18,3 +18,4 @@ alien_invasion_v1.x
     v1.6 set the ship at center of screen
     v1.7 ability to move ship right
     v1.8 ability to move ship both left and right
+    v1.9 Change ship speed
