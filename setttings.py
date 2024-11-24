@@ -8,4 +8,3 @@ class Settings:
         self.screen_height = 800
 
         self.bg_color = (230,230,230)
-        # self.bg_color = (68,108,151) # sky blue
