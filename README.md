@@ -7,6 +7,8 @@
 
     To Run: python app.py
 
+    git branch -d <branch name>
+
 alien_invasion
     v1.1 Basic
     v1.2 Added colors 
