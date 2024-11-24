@@ -9,7 +9,7 @@
 
     git branch -d <branch name>
 
-alien_invasion
+alien_invasion_v1.x
     v1.1 Basic
     v1.2 Added colors 
     v1.3 Added settings module
