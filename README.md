@@ -22,3 +22,4 @@ alien_invasion_v1.x
     v1.10 Limiting the ship range
     v1.11 refactoring _check_events() and added q to exit
     v1.12 Run in full screen mode
+    v1.13 homework: Skim docs and make a rocket in center of screen. and enxure it never goes beyond the edges
