@@ -20,3 +20,4 @@ alien_invasion_v1.x
     v1.8 ability to move ship both left and right
     v1.9 Change ship speed
     v1.10 Limiting the ship range
+    v1.11 refactoring _check_events()
