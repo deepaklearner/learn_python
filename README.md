@@ -21,4 +21,4 @@ alien_invasion_v1.x
     v1.9 Change ship speed
     v1.10 Limiting the ship range
     v1.11 refactoring _check_events() and added q to exit
-    v1.12
+    v1.12 Run in full screen mode
