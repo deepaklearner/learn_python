@@ -10,9 +10,8 @@ class rocket_game:
 
     def run(self):
         while(True):
-            image2 = pygame.image.load("rocket.png")
+            pygame.draw.circle(self.screen, "red", pygame.Vector2(self.screen.get_width() / 2, self.screen.get_height() / 2), 40)
             pygame.display.flip()
-            pygame.Surface.blit(self.screen,image2)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
