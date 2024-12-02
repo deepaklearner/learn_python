@@ -10,10 +10,18 @@ class rocket_game:
 
     def run(self):
         while(True):
-            pygame.draw.circle(self.screen, "red", pygame.Vector2(self.screen.get_width() / 2, self.screen.get_height() / 2), 40)
-            pygame.display.flip()
+            x = self.screen.get_width() / 2 
+            y = self.screen.get_height() / 2
 
             for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if pygame.KEYDOWN == pygame.K_RIGHT:
+                        x +=  1
+                
+                pygame.draw.circle(self.screen, "red", pygame.Vector2(x , y), 40)
+                pygame.display.flip()
+
+
                 if event.type == pygame.QUIT:
                     sys.exit()
 
