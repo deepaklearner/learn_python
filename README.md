@@ -6,12 +6,3 @@
     pip install -r requirements.txt
 
     To Run: python app.py
-
-
-    /your-project-directory
-        /config
-            config.yaml
-        /templates
-            index.html
-        app.py
-        .gitignore
