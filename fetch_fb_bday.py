@@ -1,7 +1,7 @@
 import requests
 
 # Your Facebook Graph API access token
-access_token = 'EAAJGZAr3mOQUBO5N6UZC6EZAsG4yFuC0OudDCXSAmxaTNf4f7anu76DHdSmtjICjCbGcchLAHYQnfffK8JhZCMjxZAVjgTcUL4PTCUlHk3c1hDk6IPfnsjJ73ZACnXydl7vsEl1bMBekjwUG2SsqDV5quZCZB32pO9auQ9AjXWEHVmZAPNhGqlhJYvXZCYr6ZA9iZAV8yOdGAGAKc4fllzg7Bh5aV4MtmRJa8s6CerwMBpK2Tx505XiVC3DZC'  # Replace with your actual token
+access_token = ''  # Replace with your actual token
 
 # Define the URL to fetch user data (including friends' birthdays)
 url = f'https://graph.facebook.com/me/friends?fields=name,birthday&access_token={access_token}'
