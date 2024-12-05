@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish App</title>
+</head>
+<body>
+    <h1>Friends List</h1>
+    <ul>
+        {% for friend in friends %}
+            <li>{{ friend.name }} - {{ friend.birthday.strftime('%Y-%m-%d') }} - {{ friend.when_to_wish }} - {{ friend.timezone }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('add_friend') }}">Add a New Friend</a>
+</body>
+</html>
