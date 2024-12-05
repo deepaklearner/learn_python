@@ -40,7 +40,7 @@ def send_whatsapp_message(phone_number, message):
         # Initialize the Service with the chromedriver path
         service = Service(CHROMEDRIVER_PATH)
         options = webdriver.ChromeOptions()
-        # options.add_argument('--incognito')  # Optional: Open Chrome in Incognito mode
+        options.add_argument('--incognito')  # Optional: Open Chrome in Incognito mode
         driver = webdriver.Chrome(service=service, options=options)
         driver.get("https://web.whatsapp.com/")
         print("Scan the QR code to login.")
@@ -49,7 +49,7 @@ def send_whatsapp_message(phone_number, message):
     # Locate the chat based on the phone number and send a message
     try:
         # Search for the contact using phone number
-        search_box = driver.find_element(By.XPATH, '//*[@title="Search input textbox"]')
+        search_box = driver.find_element(By.XPATH, '//div[@contenteditable="true"][@data-tab="3"]')  # Updated XPath
         search_box.clear()
         search_box.send_keys(phone_number)
         time.sleep(2)  # Wait for the search to complete

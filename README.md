@@ -16,6 +16,8 @@ v1.2: The time zones should be available as drop down.
 mobile code prefix also should be changable.
 also add a test button to send message now.
 
-v1.3: Use sql alchemy and give option to edit friends entry
+v1.3: Use regular chrome instead of chromedriver
+
+v1.x: Use sql alchemy and give option to edit friends entry
 
 v1.x: Using Twilio
