@@ -11,8 +11,15 @@
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
-        <label for="phone_number">Phone Number (with country code, e.g., +1xxxxxxx):</label>
+        <label for="phone_number">Phone Number (without country code):</label>
         <input type="text" id="phone_number" name="phone_number" required><br><br>
+
+        <label for="country_code">Country Code:</label>
+        <select id="country_code" name="country_code">
+            {% for code, country in country_codes %}
+                <option value="{{ code }}">{{ country }} ({{ code }})</option>
+            {% endfor %}
+        </select><br><br>
 
         <label for="birthday">Birthday (YYYY-MM-DD):</label>
         <input type="date" id="birthday" name="birthday" required><br><br>
@@ -20,8 +27,12 @@
         <label for="when_to_wish">When to wish (HH:MM, default is 00:00):</label>
         <input type="time" id="when_to_wish" name="when_to_wish" value="00:00"><br><br>
 
-        <label for="timezone">Timezone (e.g., Asia/Kolkata):</label>
-        <input type="text" id="timezone" name="timezone" value="Asia/Kolkata" required><br><br>
+        <label for="timezone">Timezone:</label>
+        <select id="timezone" name="timezone">
+            {% for timezone in timezones %}
+                <option value="{{ timezone }}">{{ timezone }}</option>
+            {% endfor %}
+        </select><br><br>
 
         <button type="submit">Add Friend</button>
     </form>

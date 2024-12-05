@@ -19,6 +19,18 @@ CHROMEDRIVER_PATH = "/path/to/chromedriver"
 # Initialize WebDriver (Selenium)
 driver = None
 
+# List of timezones for the dropdown
+TIMEZONES = [
+    "Asia/Kolkata", "America/New_York", "Europe/London", "Europe/Paris",
+    "Asia/Tokyo", "Australia/Sydney", "America/Los_Angeles", "Africa/Johannesburg"
+]
+
+# List of mobile code prefixes for different countries
+COUNTRY_CODES = [
+    ("+1", "United States"), ("+44", "United Kingdom"), ("+91", "India"),
+    ("+61", "Australia"), ("+81", "Japan"), ("+33", "France"), ("+49", "Germany")
+]
+
 # Function to send WhatsApp message using Selenium
 def send_whatsapp_message(phone_number, message):
     global driver
@@ -74,9 +86,13 @@ def add_friend():
         # Get the form data
         name = request.form['name']
         phone_number = request.form['phone_number']
+        country_code = request.form['country_code']
         birthday = request.form['birthday']
         when_to_wish = request.form['when_to_wish']
         timezone = request.form['timezone']
+
+        # Combine the country code with phone number
+        full_phone_number = country_code + phone_number
 
         # Parse the birthday into datetime object
         birthday = datetime.strptime(birthday, '%Y-%m-%d')
@@ -84,7 +100,7 @@ def add_friend():
         # Store friend information
         friend = {
             'name': name,
-            'phone_number': phone_number,
+            'phone_number': full_phone_number,
             'birthday': birthday,
             'when_to_wish': when_to_wish,
             'timezone': timezone
@@ -97,7 +113,7 @@ def add_friend():
 
         return redirect(url_for('index'))
 
-    return render_template('add_friend.html')
+    return render_template('add_friend.html', timezones=TIMEZONES, country_codes=COUNTRY_CODES)
 
 # Home route to show the list of friends
 @app.route('/')
@@ -109,6 +125,14 @@ def run_scheduler():
     while True:
         schedule.run_pending()
         time.sleep(1)
+
+# Route to test sending a message
+@app.route('/send_test', methods=['POST'])
+def send_test():
+    phone_number = request.form['phone_number']
+    message = request.form['message']
+    send_whatsapp_message(phone_number, message)
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     # Start the scheduler in a separate thread
