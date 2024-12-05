@@ -17,6 +17,9 @@ friends = []
 # Path to your ChromeDriver
 CHROMEDRIVER_PATH = r"C:\Users\ankit\OneDrive\Documents\VSCode projects\learn_python\chromedriver-win64\chromedriver.exe"
 
+# Path to your Chrome User Data directory (existing profile)
+CHROME_USER_DATA_DIR = r"C:\Users\ankit\AppData\Local\Google\Chrome\User Data\Profile 3"  # Update this path
+
 # Initialize WebDriver (Selenium)
 driver = None
 
@@ -35,16 +38,20 @@ COUNTRY_CODES = [
 # Function to send WhatsApp message using Selenium
 def send_whatsapp_message(phone_number, message):
     global driver
-    # Open WhatsApp Web (in incognito mode to avoid caching issues)
+    # Open WhatsApp Web using your regular Chrome profile
     if driver is None:
         # Initialize the Service with the chromedriver path
         service = Service(CHROMEDRIVER_PATH)
         options = webdriver.ChromeOptions()
-        options.add_argument('--incognito')  # Optional: Open Chrome in Incognito mode
+
+        # Use the existing Chrome user data (your logged-in session)
+        options.add_argument(f"user-data-dir={CHROME_USER_DATA_DIR}")
+        options.add_argument("profile-directory=Default")  # You can change 'Default' to the specific profile if needed
+
         driver = webdriver.Chrome(service=service, options=options)
         driver.get("https://web.whatsapp.com/")
-        print("Scan the QR code to login.")
-        time.sleep(15)  # Wait for QR scan
+        print("Using your regular Chrome session.")
+        time.sleep(10)  # Allow some time for the page to load
 
     # Locate the chat based on the phone number and send a message
     try:
