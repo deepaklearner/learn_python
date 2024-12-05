@@ -12,5 +12,8 @@ v1.1:
     
         pip install selenium
 
+v1.2: The time zones should be available as drop down.
+mobile code prefix also should be changable.
+also add a test button to send message now.
 
-v1.2: Using Twilio
+v1.x: Using Twilio
