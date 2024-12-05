@@ -4,6 +4,7 @@ import schedule
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from threading import Thread
@@ -14,7 +15,7 @@ app = Flask(__name__)
 friends = []
 
 # Path to your ChromeDriver
-CHROMEDRIVER_PATH = "/path/to/chromedriver"
+CHROMEDRIVER_PATH = r"C:\Users\ankit\OneDrive\Documents\VSCode projects\learn_python\chromedriver-win64\chromedriver.exe"
 
 # Initialize WebDriver (Selenium)
 driver = None
@@ -36,9 +37,11 @@ def send_whatsapp_message(phone_number, message):
     global driver
     # Open WhatsApp Web (in incognito mode to avoid caching issues)
     if driver is None:
+        # Initialize the Service with the chromedriver path
+        service = Service(CHROMEDRIVER_PATH)
         options = webdriver.ChromeOptions()
-        options.add_argument('--incognito')
-        driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, options=options)
+        # options.add_argument('--incognito')  # Optional: Open Chrome in Incognito mode
+        driver = webdriver.Chrome(service=service, options=options)
         driver.get("https://web.whatsapp.com/")
         print("Scan the QR code to login.")
         time.sleep(15)  # Wait for QR scan
